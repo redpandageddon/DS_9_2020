@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://endpoint.service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="BranchServiceService" targetNamespace="http://endpoint.service/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ws02/BranchService?xsd=1" namespace="http://types/" />
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ws02/BranchService?xsd=2" namespace="http://endpoint.service/" />
+    </xsd:schema>
+  </types>
+  <message name="getAllBranch">
+    <part name="parameters" element="tns:getAllBranch" />
+  </message>
+  <message name="getAllBranchResponse">
+    <part name="parameters" element="tns:getAllBranchResponse" />
+  </message>
+  <message name="setNewBranch">
+    <part name="parameters" element="tns:setNewBranch" />
+  </message>
+  <message name="setNewBranchResponse">
+    <part name="parameters" element="tns:setNewBranchResponse" />
+  </message>
+  <portType name="BranchService">
+    <operation name="getAllBranch">
+      <input wsam:Action="http://endpoint.service/BranchService/getAllBranchRequest" message="tns:getAllBranch" />
+      <output wsam:Action="http://endpoint.service/BranchService/getAllBranchResponse" message="tns:getAllBranchResponse" />
+    </operation>
+    <operation name="setNewBranch">
+      <input wsam:Action="http://endpoint.service/BranchService/setNewBranchRequest" message="tns:setNewBranch" />
+      <output wsam:Action="http://endpoint.service/BranchService/setNewBranchResponse" message="tns:setNewBranchResponse" />
+    </operation>
+  </portType>
+  <binding name="BranchServicePortBinding" type="tns:BranchService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getAllBranch">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setNewBranch">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="BranchServiceService">
+    <port name="BranchServicePort" binding="tns:BranchServicePortBinding">
+      <soap:address location="http://localhost:8080/ws02/BranchService" />
+    </port>
+  </service>
+</definitions>

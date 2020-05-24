@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://endpoint.service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ActionServiceService" targetNamespace="http://endpoint.service/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ws02/ActionService?xsd=1" namespace="http://types/" />
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ws02/ActionService?xsd=2" namespace="http://endpoint.service/" />
+    </xsd:schema>
+  </types>
+  <message name="getAllAction">
+    <part name="parameters" element="tns:getAllAction" />
+  </message>
+  <message name="getAllActionResponse">
+    <part name="parameters" element="tns:getAllActionResponse" />
+  </message>
+  <message name="setNewAction">
+    <part name="parameters" element="tns:setNewAction" />
+  </message>
+  <message name="setNewActionResponse">
+    <part name="parameters" element="tns:setNewActionResponse" />
+  </message>
+  <message name="getTotal">
+    <part name="parameters" element="tns:getTotal" />
+  </message>
+  <message name="getTotalResponse">
+    <part name="parameters" element="tns:getTotalResponse" />
+  </message>
+  <portType name="ActionService">
+    <operation name="getAllAction">
+      <input wsam:Action="http://endpoint.service/ActionService/getAllActionRequest" message="tns:getAllAction" />
+      <output wsam:Action="http://endpoint.service/ActionService/getAllActionResponse" message="tns:getAllActionResponse" />
+    </operation>
+    <operation name="setNewAction">
+      <input wsam:Action="http://endpoint.service/ActionService/setNewActionRequest" message="tns:setNewAction" />
+      <output wsam:Action="http://endpoint.service/ActionService/setNewActionResponse" message="tns:setNewActionResponse" />
+    </operation>
+    <operation name="getTotal">
+      <input wsam:Action="http://endpoint.service/ActionService/getTotalRequest" message="tns:getTotal" />
+      <output wsam:Action="http://endpoint.service/ActionService/getTotalResponse" message="tns:getTotalResponse" />
+    </operation>
+  </portType>
+  <binding name="ActionServicePortBinding" type="tns:ActionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getAllAction">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setNewAction">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTotal">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ActionServiceService">
+    <port name="ActionServicePort" binding="tns:ActionServicePortBinding">
+      <soap:address location="http://localhost:8080/ws02/ActionService" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://endpoint.service/" xmlns:ns1="http://types/" targetNamespace="http://endpoint.service/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/ws02/MaterialService?xsd=1" namespace="http://types/" />
+  <xs:element name="getAllMaterials" type="tns:getAllMaterials" />
+  <xs:element name="getAllMaterialsResponse" type="tns:getAllMaterialsResponse" />
+  <xs:element name="getTotal" type="tns:getTotal" />
+  <xs:element name="getTotalResponse" type="tns:getTotalResponse" />
+  <xs:element name="setNewMaterial" type="tns:setNewMaterial" />
+  <xs:element name="setNewMaterialResponse" type="tns:setNewMaterialResponse" />
+  <xs:complexType name="getAllMaterials">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllMaterialsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:listOfMaterial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setNewMaterial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="ns1:material" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setNewMaterialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:listOfMaterial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTotal">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getTotalResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

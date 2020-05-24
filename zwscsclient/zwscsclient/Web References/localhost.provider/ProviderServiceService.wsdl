@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://endpoint.service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ProviderServiceService" targetNamespace="http://endpoint.service/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ws02/ProviderService?xsd=1" namespace="http://types/" />
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ws02/ProviderService?xsd=2" namespace="http://endpoint.service/" />
+    </xsd:schema>
+  </types>
+  <message name="getAllProvider">
+    <part name="parameters" element="tns:getAllProvider" />
+  </message>
+  <message name="getAllProviderResponse">
+    <part name="parameters" element="tns:getAllProviderResponse" />
+  </message>
+  <message name="setNewProvider">
+    <part name="parameters" element="tns:setNewProvider" />
+  </message>
+  <message name="setNewProviderResponse">
+    <part name="parameters" element="tns:setNewProviderResponse" />
+  </message>
+  <portType name="ProviderService">
+    <operation name="getAllProvider">
+      <input wsam:Action="http://endpoint.service/ProviderService/getAllProviderRequest" message="tns:getAllProvider" />
+      <output wsam:Action="http://endpoint.service/ProviderService/getAllProviderResponse" message="tns:getAllProviderResponse" />
+    </operation>
+    <operation name="setNewProvider">
+      <input wsam:Action="http://endpoint.service/ProviderService/setNewProviderRequest" message="tns:setNewProvider" />
+      <output wsam:Action="http://endpoint.service/ProviderService/setNewProviderResponse" message="tns:setNewProviderResponse" />
+    </operation>
+  </portType>
+  <binding name="ProviderServicePortBinding" type="tns:ProviderService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getAllProvider">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setNewProvider">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ProviderServiceService">
+    <port name="ProviderServicePort" binding="tns:ProviderServicePortBinding">
+      <soap:address location="http://localhost:8080/ws02/ProviderService" />
+    </port>
+  </service>
+</definitions>

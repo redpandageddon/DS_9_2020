@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://endpoint.service/" xmlns:ns1="http://types/" targetNamespace="http://endpoint.service/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/ws02/StaffService?xsd=1" namespace="http://types/" />
+  <xs:element name="getAllStaff" type="tns:getAllStaff" />
+  <xs:element name="getAllStaffResponse" type="tns:getAllStaffResponse" />
+  <xs:element name="getTotal" type="tns:getTotal" />
+  <xs:element name="getTotalResponse" type="tns:getTotalResponse" />
+  <xs:element name="setNewStaff" type="tns:setNewStaff" />
+  <xs:element name="setNewStaffResponse" type="tns:setNewStaffResponse" />
+  <xs:complexType name="getTotal">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getTotalResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllStaff">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllStaffResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:listOfStaff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setNewStaff">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="ns1:staff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setNewStaffResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:listOfStaff" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

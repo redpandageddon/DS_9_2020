@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://endpoint.service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="MaterialServiceService" targetNamespace="http://endpoint.service/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ws02/MaterialService?xsd=1" namespace="http://types/" />
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ws02/MaterialService?xsd=2" namespace="http://endpoint.service/" />
+    </xsd:schema>
+  </types>
+  <message name="getTotal">
+    <part name="parameters" element="tns:getTotal" />
+  </message>
+  <message name="getTotalResponse">
+    <part name="parameters" element="tns:getTotalResponse" />
+  </message>
+  <message name="getAllMaterials">
+    <part name="parameters" element="tns:getAllMaterials" />
+  </message>
+  <message name="getAllMaterialsResponse">
+    <part name="parameters" element="tns:getAllMaterialsResponse" />
+  </message>
+  <message name="setNewMaterial">
+    <part name="parameters" element="tns:setNewMaterial" />
+  </message>
+  <message name="setNewMaterialResponse">
+    <part name="parameters" element="tns:setNewMaterialResponse" />
+  </message>
+  <portType name="MaterialService">
+    <operation name="getTotal">
+      <input wsam:Action="http://endpoint.service/MaterialService/getTotalRequest" message="tns:getTotal" />
+      <output wsam:Action="http://endpoint.service/MaterialService/getTotalResponse" message="tns:getTotalResponse" />
+    </operation>
+    <operation name="getAllMaterials">
+      <input wsam:Action="http://endpoint.service/MaterialService/getAllMaterialsRequest" message="tns:getAllMaterials" />
+      <output wsam:Action="http://endpoint.service/MaterialService/getAllMaterialsResponse" message="tns:getAllMaterialsResponse" />
+    </operation>
+    <operation name="setNewMaterial">
+      <input wsam:Action="http://endpoint.service/MaterialService/setNewMaterialRequest" message="tns:setNewMaterial" />
+      <output wsam:Action="http://endpoint.service/MaterialService/setNewMaterialResponse" message="tns:setNewMaterialResponse" />
+    </operation>
+  </portType>
+  <binding name="MaterialServicePortBinding" type="tns:MaterialService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getTotal">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAllMaterials">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setNewMaterial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="MaterialServiceService">
+    <port name="MaterialServicePort" binding="tns:MaterialServicePortBinding">
+      <soap:address location="http://localhost:8080/ws02/MaterialService" />
+    </port>
+  </service>
+</definitions>

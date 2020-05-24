@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://endpoint.service/" xmlns:ns1="http://types/" targetNamespace="http://endpoint.service/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/ws02/ActionService?xsd=1" namespace="http://types/" />
+  <xs:element name="getAllAction" type="tns:getAllAction" />
+  <xs:element name="getAllActionResponse" type="tns:getAllActionResponse" />
+  <xs:element name="getTotal" type="tns:getTotal" />
+  <xs:element name="getTotalResponse" type="tns:getTotalResponse" />
+  <xs:element name="setNewAction" type="tns:setNewAction" />
+  <xs:element name="setNewActionResponse" type="tns:setNewActionResponse" />
+  <xs:complexType name="setNewAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="ns1:action" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setNewActionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:listOfAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllAction">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllActionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:listOfAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTotal">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getTotalResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://endpoint.service/" xmlns:ns1="http://types/" targetNamespace="http://endpoint.service/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/ws02/ProviderService?xsd=1" namespace="http://types/" />
+  <xs:element name="getAllProvider" type="tns:getAllProvider" />
+  <xs:element name="getAllProviderResponse" type="tns:getAllProviderResponse" />
+  <xs:element name="setNewProvider" type="tns:setNewProvider" />
+  <xs:element name="setNewProviderResponse" type="tns:setNewProviderResponse" />
+  <xs:complexType name="setNewProvider">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="ns1:provider" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setNewProviderResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:listOfProvider" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllProvider">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllProviderResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:listOfProvider" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
