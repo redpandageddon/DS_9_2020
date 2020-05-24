@@ -35,9 +35,22 @@ public class ActionService {
         }
         return lstRet;
     }
+    
+    @WebMethod
+    public ListOfAction deleteAction(Action act) {
+    	
+        ListOfAction lstRet = null;
+        obj.Delete(act);
+        List<Action> lst = obj.GetAll();
+        if(lst != null){
+            lstRet = new ListOfAction();
+            lstRet.setItem(lst);
+        }
+        return lstRet;
+    }
 
     @WebMethod()
-    public double getTotal(){
+    public double getTotalActionPrice(){
         return obj.CountTotal();
     }
 }

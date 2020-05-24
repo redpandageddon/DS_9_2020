@@ -30,18 +30,6 @@ public interface StaffService {
     /**
      * 
      * @return
-     *     returns double
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getTotal", targetNamespace = "http://endpoint.service/", className = "service.endpoint.GetTotal")
-    @ResponseWrapper(localName = "getTotalResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.GetTotalResponse")
-    @Action(input = "http://endpoint.service/StaffService/getTotalRequest", output = "http://endpoint.service/StaffService/getTotalResponse")
-    public double getTotal();
-
-    /**
-     * 
-     * @return
      *     returns types.ListOfStaff
      */
     @WebMethod
@@ -65,5 +53,32 @@ public interface StaffService {
     public ListOfStaff setNewStaff(
         @WebParam(name = "arg0", targetNamespace = "")
         Staff arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns types.ListOfStaff
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "deleteStaff", targetNamespace = "http://endpoint.service/", className = "service.endpoint.DeleteStaff")
+    @ResponseWrapper(localName = "deleteStaffResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.DeleteStaffResponse")
+    @Action(input = "http://endpoint.service/StaffService/deleteStaffRequest", output = "http://endpoint.service/StaffService/deleteStaffResponse")
+    public ListOfStaff deleteStaff(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Staff arg0);
+
+    /**
+     * 
+     * @return
+     *     returns double
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getTotalStaffSalary", targetNamespace = "http://endpoint.service/", className = "service.endpoint.GetTotalStaffSalary")
+    @ResponseWrapper(localName = "getTotalStaffSalaryResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.GetTotalStaffSalaryResponse")
+    @Action(input = "http://endpoint.service/StaffService/getTotalStaffSalaryRequest", output = "http://endpoint.service/StaffService/getTotalStaffSalaryResponse")
+    public double getTotalStaffSalary();
 
 }

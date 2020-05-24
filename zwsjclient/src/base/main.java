@@ -868,7 +868,7 @@ public class main extends javax.swing.JFrame {
     private void count_zp_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_count_zp_buttonActionPerformed
         // TODO add your handling code here:
         try{
-        zp_label.setText(Double.toString(staffService.getStaffServicePort().getTotal()));
+        zp_label.setText(Double.toString(staffService.getStaffServicePort().getTotalStaffSalary()));
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -890,7 +890,7 @@ public class main extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-        avg_label.setText(Double.toString(actionService.getActionServicePort().getTotal()));
+        avg_label.setText(Double.toString(actionService.getActionServicePort().getTotalActionPrice()));
         }
         catch(Exception ex){
             ex.printStackTrace();

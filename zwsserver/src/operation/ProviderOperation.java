@@ -6,5 +6,5 @@ import types.Provider;
 public interface ProviderOperation {
     List<Provider> GetAll();
     List<Provider> Add(Provider newItem);
-    List<Provider> DeleteAt(int index);
+    List<Provider> Delete(Provider item);
 }

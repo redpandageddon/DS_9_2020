@@ -27,9 +27,21 @@ public class StaffOperationImpl implements StaffOperation {
     }
 
     @Override
-    public List<Staff> DeleteAt(int index)
+    public List<Staff> Delete(Staff item)
     {
-        lst.remove(index);
+    	int i = 0;
+        for(var it : lst) {
+        	if(it.getAge() == item.getAge()) {
+        		if(it.getSalary() == item.getSalary()) {
+        			if(it.getFIO().compareTo(item.getFIO()) == 0) {
+        				if(it.getPosition().compareTo(item.getPosition()) == 0) {
+        					lst.remove(i);
+        				}
+        			}
+        		}
+        	}
+        	i++;
+        }
         return lst;
     }
 

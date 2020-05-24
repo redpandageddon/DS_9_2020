@@ -23,6 +23,19 @@ public class ProviderService {
         }
         return lstret;
     }
+    
+    @WebMethod
+    public ListOfProvider deleteProvider(Provider item) {
+    	
+        ListOfProvider lstRet = null;
+        obj.Delete(item);
+        List<Provider> lst = obj.GetAll();
+        if(lst != null){
+            lstRet = new ListOfProvider();
+            lstRet.setItem(lst);
+        }
+        return lstRet;
+    }
 
     @WebMethod
     public ListOfProvider setNewProvider(Provider item){

@@ -9,8 +9,8 @@ public class ActionOperationImpl implements ActionOperation {
     public static List<Action> lst = new ArrayList<Action>();
 
     static {
-        lst.add(new Action("спа",150d, 2d, "нет"));
-        lst.add(new Action("парная",3000d, 1d, "Липа"));
+        lst.add(new Action("a1", 150d, 2d, "a2"));
+        lst.add(new Action("a3", 3000d, 1d, "a4"));
     }
 
     @Override
@@ -27,9 +27,22 @@ public class ActionOperationImpl implements ActionOperation {
     }
 
     @Override
-    public List<Action> DeleteAt(int index)
+    public List<Action> Delete(Action act)
     {
-        lst.remove(index); return lst;
+    	int i = 0;
+        for(var item : lst) {
+        	if(item.getDescription().compareTo(act.getDescription()) == 0) {
+        		if(item.getPrice() == act.getPrice()) {
+        			if(item.getTime() == act.getTime()) {
+        				if(item.getVenik().compareTo(act.getVenik()) == 0) {
+        					lst.remove(i);
+        				}
+        			}
+        		}
+        	}
+        	i++;
+        }
+        return lst;
     }
 
     @Override

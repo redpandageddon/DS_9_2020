@@ -28,6 +28,18 @@ public interface ActionService {
     /**
      * 
      * @return
+     *     returns double
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getTotalActionPrice", targetNamespace = "http://endpoint.service/", className = "service.endpoint.GetTotalActionPrice")
+    @ResponseWrapper(localName = "getTotalActionPriceResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.GetTotalActionPriceResponse")
+    @javax.xml.ws.Action(input = "http://endpoint.service/ActionService/getTotalActionPriceRequest", output = "http://endpoint.service/ActionService/getTotalActionPriceResponse")
+    public double getTotalActionPrice();
+
+    /**
+     * 
+     * @return
      *     returns types.ListOfAction
      */
     @WebMethod
@@ -54,14 +66,17 @@ public interface ActionService {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns double
+     *     returns types.ListOfAction
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getTotal", targetNamespace = "http://endpoint.service/", className = "service.endpoint.GetTotal")
-    @ResponseWrapper(localName = "getTotalResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.GetTotalResponse")
-    @javax.xml.ws.Action(input = "http://endpoint.service/ActionService/getTotalRequest", output = "http://endpoint.service/ActionService/getTotalResponse")
-    public double getTotal();
+    @RequestWrapper(localName = "deleteAction", targetNamespace = "http://endpoint.service/", className = "service.endpoint.DeleteAction")
+    @ResponseWrapper(localName = "deleteActionResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.DeleteActionResponse")
+    @javax.xml.ws.Action(input = "http://endpoint.service/ActionService/deleteActionRequest", output = "http://endpoint.service/ActionService/deleteActionResponse")
+    public ListOfAction deleteAction(
+        @WebParam(name = "arg0", targetNamespace = "")
+        types.Action arg0);
 
 }

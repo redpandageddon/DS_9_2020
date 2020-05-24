@@ -37,7 +37,20 @@ public class StaffService {
     }
 
     @WebMethod
-    public double getTotal(){
+    public ListOfStaff deleteStaff(Staff item) {
+    	
+        ListOfStaff lstRet = null;
+        obj.Delete(item);
+        List<Staff> lst = obj.GetAll();
+        if(lst != null){
+            lstRet = new ListOfStaff();
+            lstRet.setItem(lst);
+        }
+        return lstRet;
+    }
+    
+    @WebMethod
+    public double getTotalStaffSalary(){
         return obj.CountTotal();
     }
 

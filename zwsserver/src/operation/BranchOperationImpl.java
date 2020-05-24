@@ -9,8 +9,8 @@ public class BranchOperationImpl implements BranchOperation {
     public static List<Branch> lst = new ArrayList<Branch>();
 
     static {
-        lst.add(new Branch("Береза", "описание"));
-        lst.add(new Branch("Липа", "описание"));
+        lst.add(new Branch("b1", "b2"));
+        lst.add(new Branch("b3", "b4"));
     }
 
     @Override
@@ -25,8 +25,16 @@ public class BranchOperationImpl implements BranchOperation {
     }
 
     @Override
-    public List<Branch> DeleteAt(int index) {
-        lst.remove(index);
+    public List<Branch> Delete(Branch item) {
+    	int i = 0;
+        for(var it : lst) {
+        	if(item.getDescription().compareTo(item.getDescription()) == 0) {
+        		if(it.getTree().compareTo(item.getTree()) == 0) {
+        			lst.remove(i);
+        		}
+        	}
+        	i++;
+        }
         return lst;
     }
 }

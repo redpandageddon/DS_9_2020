@@ -22,6 +22,19 @@ public class BranchService {
         }
         return lstret;
     }
+    
+    @WebMethod
+    public ListOfBranch deleteBranch(Branch item) {
+    	
+        ListOfBranch lstRet = null;
+        obj.Delete(item);
+        List<Branch> lst = obj.GetAll();
+        if(lst != null){
+            lstRet = new ListOfBranch();
+            lstRet.setItem(lst);
+        }
+        return lstRet;
+    }
 
     @WebMethod
     public ListOfBranch setNewBranch(Branch item){

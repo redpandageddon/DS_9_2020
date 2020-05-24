@@ -36,9 +36,21 @@ public class MaterialService {
         }
         return lstRet;
     }
+    
+    @WebMethod
+    public ListOfMaterial deleteMaterial(Material item) {
+    	ListOfMaterial lstRet = null;
+        obj.Delete(item);
+        List<Material> lst = obj.GetAll();
+        if(lst != null){
+            lstRet = new ListOfMaterial();
+            lstRet.setItem(lst);
+        }
+        return lstRet;
+    }
 
     @WebMethod
-    public double getTotal(){
+    public double getTotalMaterialPrice(){
         return obj.CountTotal();
     }
 }

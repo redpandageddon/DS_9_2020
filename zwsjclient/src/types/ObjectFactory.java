@@ -30,19 +30,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ListOfStaff }
-     * 
-     */
-    public ListOfStaff createListOfStaff() {
-        return new ListOfStaff();
-    }
-
-    /**
      * Create an instance of {@link Staff }
      * 
      */
     public Staff createStaff() {
         return new Staff();
+    }
+
+    /**
+     * Create an instance of {@link ListOfStaff }
+     * 
+     */
+    public ListOfStaff createListOfStaff() {
+        return new ListOfStaff();
     }
 
 }

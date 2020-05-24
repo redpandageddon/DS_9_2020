@@ -7,6 +7,6 @@ public interface BranchOperation {
 
     List<Branch> GetAll();
     List<Branch> Add(Branch newItem);
-    List<Branch> DeleteAt(int index);
+    List<Branch> Delete(Branch item);
 
 }

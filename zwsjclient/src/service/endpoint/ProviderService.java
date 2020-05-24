@@ -47,6 +47,21 @@ public interface ProviderService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "deleteProvider", targetNamespace = "http://endpoint.service/", className = "service.endpoint.DeleteProvider")
+    @ResponseWrapper(localName = "deleteProviderResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.DeleteProviderResponse")
+    @Action(input = "http://endpoint.service/ProviderService/deleteProviderRequest", output = "http://endpoint.service/ProviderService/deleteProviderResponse")
+    public ListOfProvider deleteProvider(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Provider arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns types.ListOfProvider
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "setNewProvider", targetNamespace = "http://endpoint.service/", className = "service.endpoint.SetNewProvider")
     @ResponseWrapper(localName = "setNewProviderResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.SetNewProviderResponse")
     @Action(input = "http://endpoint.service/ProviderService/setNewProviderRequest", output = "http://endpoint.service/ProviderService/setNewProviderResponse")

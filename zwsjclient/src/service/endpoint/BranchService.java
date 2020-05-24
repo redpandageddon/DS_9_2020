@@ -47,6 +47,21 @@ public interface BranchService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "deleteBranch", targetNamespace = "http://endpoint.service/", className = "service.endpoint.DeleteBranch")
+    @ResponseWrapper(localName = "deleteBranchResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.DeleteBranchResponse")
+    @Action(input = "http://endpoint.service/BranchService/deleteBranchRequest", output = "http://endpoint.service/BranchService/deleteBranchResponse")
+    public ListOfBranch deleteBranch(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Branch arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns types.ListOfBranch
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "setNewBranch", targetNamespace = "http://endpoint.service/", className = "service.endpoint.SetNewBranch")
     @ResponseWrapper(localName = "setNewBranchResponse", targetNamespace = "http://endpoint.service/", className = "service.endpoint.SetNewBranchResponse")
     @Action(input = "http://endpoint.service/BranchService/setNewBranchRequest", output = "http://endpoint.service/BranchService/setNewBranchResponse")

@@ -19,9 +19,19 @@ public class ProviderOperationImpl implements ProviderOperation {
     }
 
     @Override
-    public List<Provider> DeleteAt(int index)
+    public List<Provider> Delete(Provider item)
     {
-        lst.remove(index);
+    	int i = 0;
+        for(var it : lst) {
+        	if(item.getName().compareTo(item.getName()) == 0) {
+        		if(it.getProduct().compareTo(item.getProduct()) == 0) {
+        			if(it.getCooperation() == item.getCooperation()) {
+        				lst.remove(i);
+        			}
+        		}
+        	}
+        	i++;
+        }
         return lst;
     }
 

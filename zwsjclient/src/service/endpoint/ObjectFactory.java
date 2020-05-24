@@ -24,10 +24,12 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _DeleteStaff_QNAME = new QName("http://endpoint.service/", "deleteStaff");
+    private final static QName _DeleteStaffResponse_QNAME = new QName("http://endpoint.service/", "deleteStaffResponse");
     private final static QName _GetAllStaff_QNAME = new QName("http://endpoint.service/", "getAllStaff");
     private final static QName _GetAllStaffResponse_QNAME = new QName("http://endpoint.service/", "getAllStaffResponse");
-    private final static QName _GetTotal_QNAME = new QName("http://endpoint.service/", "getTotal");
-    private final static QName _GetTotalResponse_QNAME = new QName("http://endpoint.service/", "getTotalResponse");
+    private final static QName _GetTotalStaffSalary_QNAME = new QName("http://endpoint.service/", "getTotalStaffSalary");
+    private final static QName _GetTotalStaffSalaryResponse_QNAME = new QName("http://endpoint.service/", "getTotalStaffSalaryResponse");
     private final static QName _SetNewStaff_QNAME = new QName("http://endpoint.service/", "setNewStaff");
     private final static QName _SetNewStaffResponse_QNAME = new QName("http://endpoint.service/", "setNewStaffResponse");
 
@@ -36,6 +38,22 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link DeleteStaff }
+     * 
+     */
+    public DeleteStaff createDeleteStaff() {
+        return new DeleteStaff();
+    }
+
+    /**
+     * Create an instance of {@link DeleteStaffResponse }
+     * 
+     */
+    public DeleteStaffResponse createDeleteStaffResponse() {
+        return new DeleteStaffResponse();
     }
 
     /**
@@ -55,19 +73,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetTotal }
+     * Create an instance of {@link GetTotalStaffSalary }
      * 
      */
-    public GetTotal createGetTotal() {
-        return new GetTotal();
+    public GetTotalStaffSalary createGetTotalStaffSalary() {
+        return new GetTotalStaffSalary();
     }
 
     /**
-     * Create an instance of {@link GetTotalResponse }
+     * Create an instance of {@link GetTotalStaffSalaryResponse }
      * 
      */
-    public GetTotalResponse createGetTotalResponse() {
-        return new GetTotalResponse();
+    public GetTotalStaffSalaryResponse createGetTotalStaffSalaryResponse() {
+        return new GetTotalStaffSalaryResponse();
     }
 
     /**
@@ -84,6 +102,32 @@ public class ObjectFactory {
      */
     public SetNewStaffResponse createSetNewStaffResponse() {
         return new SetNewStaffResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteStaff }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeleteStaff }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://endpoint.service/", name = "deleteStaff")
+    public JAXBElement<DeleteStaff> createDeleteStaff(DeleteStaff value) {
+        return new JAXBElement<DeleteStaff>(_DeleteStaff_QNAME, DeleteStaff.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteStaffResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeleteStaffResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://endpoint.service/", name = "deleteStaffResponse")
+    public JAXBElement<DeleteStaffResponse> createDeleteStaffResponse(DeleteStaffResponse value) {
+        return new JAXBElement<DeleteStaffResponse>(_DeleteStaffResponse_QNAME, DeleteStaffResponse.class, null, value);
     }
 
     /**
@@ -113,29 +157,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetTotal }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTotalStaffSalary }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetTotal }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetTotalStaffSalary }{@code >}
      */
-    @XmlElementDecl(namespace = "http://endpoint.service/", name = "getTotal")
-    public JAXBElement<GetTotal> createGetTotal(GetTotal value) {
-        return new JAXBElement<GetTotal>(_GetTotal_QNAME, GetTotal.class, null, value);
+    @XmlElementDecl(namespace = "http://endpoint.service/", name = "getTotalStaffSalary")
+    public JAXBElement<GetTotalStaffSalary> createGetTotalStaffSalary(GetTotalStaffSalary value) {
+        return new JAXBElement<GetTotalStaffSalary>(_GetTotalStaffSalary_QNAME, GetTotalStaffSalary.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetTotalResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTotalStaffSalaryResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetTotalResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetTotalStaffSalaryResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://endpoint.service/", name = "getTotalResponse")
-    public JAXBElement<GetTotalResponse> createGetTotalResponse(GetTotalResponse value) {
-        return new JAXBElement<GetTotalResponse>(_GetTotalResponse_QNAME, GetTotalResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://endpoint.service/", name = "getTotalStaffSalaryResponse")
+    public JAXBElement<GetTotalStaffSalaryResponse> createGetTotalStaffSalaryResponse(GetTotalStaffSalaryResponse value) {
+        return new JAXBElement<GetTotalStaffSalaryResponse>(_GetTotalStaffSalaryResponse_QNAME, GetTotalStaffSalaryResponse.class, null, value);
     }
 
     /**

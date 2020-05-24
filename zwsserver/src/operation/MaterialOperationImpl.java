@@ -21,9 +21,21 @@ public class MaterialOperationImpl implements MaterialOperation {
     }
 
     @Override
-    public List<Material> DeleteAt(int index)
+    public List<Material> Delete(Material item)
     {
-        lst.remove(index);
+    	int i = 0;
+        for(var it : lst) {
+        	if(item.getDescription().compareTo(item.getDescription()) == 0) {
+        		if(it.getAmount() == item.getAmount()) {
+        			if(it.getName().compareTo(item.getName()) == 0) {
+        				if(it.getPrice()==item.getPrice()) {
+        					lst.remove(i);        				
+        				}
+        			}
+        		}
+        	}
+        	i++;
+        }
         return lst;
     }
 
